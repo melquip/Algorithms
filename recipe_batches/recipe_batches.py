@@ -3,7 +3,17 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  # get the recipe ingredients REQUIRED
+  # make a copy of that recipe with all ingredients at 0
+  # loop through the ingredients and add the batch number for each on the copy recipe
+  # return the lowest value on the copy recipy as that is the max batch number
+  batches = recipe.copy()
+  for k in batches.keys():
+    if k in ingredients:
+      batches[k] = ingredients[k] / recipe[k]
+    else:
+      batches[k] = 0
+  return math.floor(min(batches.values()))
 
 
 if __name__ == '__main__':
