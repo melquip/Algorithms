@@ -10,10 +10,12 @@ def recipe_batches(recipe, ingredients):
   batches = recipe.copy()
   for k in batches.keys():
     if k in ingredients:
-      batches[k] = ingredients[k] / recipe[k]
+      batches[k] = ingredients[k] // recipe[k]
+      if batches[k] == 0:
+        break
     else:
       batches[k] = 0
-  return math.floor(min(batches.values()))
+  return min(batches.values())
 
 
 if __name__ == '__main__':
