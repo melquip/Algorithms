@@ -1,14 +1,14 @@
 #!/usr/bin/python
 
 import sys
-import functools
 
 # The cache parameter is here for if you want to implement
 # a solution that is more efficient than the naive 
 # recursive solution
 def memoize(f):
   cache = dict()
-  def memoized(n, c = cache):
+  def memoized(n, c = {}):
+    c = cache
     if n in c:
       return cache[n]
     result = f(n, c)
